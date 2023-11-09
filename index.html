@@ -37,10 +37,20 @@
       transform: translate(-50%, -50%);
       white-space: nowrap; /* テキストを一行で表示 */
     }
+
+   /* スマートフォンの画面幅で非表示にするスタイル */
+    @media screen and (max-width: 767px) {
+      #search-bar {
+        display: none;
+      }
+    }  
   </style>
 </head>
 <body>
   <div id="text">スターほし と申します！<br>よろしくお願いいたします！</div>
+
+  <!-- 例として追加した検索部分（ID: search-bar） -->
+  <input type="text" id="search-bar" placeholder="検索">
   
   <script>
     const textElement = document.getElementById('text');
