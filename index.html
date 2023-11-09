@@ -36,34 +36,10 @@
       left: 50%; /* 画面左端からの位置を50%に設定して水平中央に配置 */
       transform: translate(-50%, -50%); /* 中央配置を調整 */
     }
-
-    #star {
-      width: 0;
-      height: 0;
-      border-left: 10px solid transparent;
-      border-right: 10px solid transparent;
-      border-bottom: 20px solid #ffffff; /* 流れ星の色 */
-      position: absolute;
-      right: 0; /* 画面右端に配置 */
-      top: 0; /* 画面上端に配置 */
-      animation: shootingStar 3s linear infinite;
-    }
-
-    @keyframes shootingStar {
-      0% {
-        transform: translate(0, 0);
-        opacity: 1;
-      }
-      100% {
-        transform: translate(calc(100% + 20px), calc(100% + 20px));
-        opacity: 0;
-      }
-    }
   </style>
 </head>
 <body>
   <div id="text">よろしく</div>
-  <div id="star"></div> <!-- 流れ星の要素 -->
 
   <script>
     const textElement = document.getElementById('text');
