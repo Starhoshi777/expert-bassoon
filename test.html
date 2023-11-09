@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(45deg, #FF5733, #27AE60); /* グラデーションの背景 */
+    }
+
+    #text {
+      font-size: 24px;
+      color: white;
+      opacity: 0;
+      transition: opacity 1s, font-size 1s;
+    }
+
+    #text.show-text {
+      opacity: 1;
+      font-size: 48px;
+    }
+  </style>
+</head>
+<body>
+  <div id="text">よろしく</div>
+
+  <script>
+    const textElement = document.getElementById('text');
+
+    // グラデーションのアニメーション
+    setTimeout(() => {
+      textElement.classList.add('show-text');
+    }, 5000); // 5秒後に文字を表示
+
+    // テキストのフェードアウトアニメーション
+    setTimeout(() => {
+      textElement.style.transition = 'opacity 1s';
+      textElement.style.opacity = 0;
+    }, 10000); // 10秒後に文字をフェードアウト
+  </script>
+</body>
+</html>
