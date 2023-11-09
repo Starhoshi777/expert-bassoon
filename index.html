@@ -18,11 +18,6 @@
       opacity: 0;
       transition: opacity 1s, font-size 1s;
     }
-
-    #text.show-text {
-      opacity: 1;
-      font-size: 48px;
-    }
   </style>
 </head>
 <body>
@@ -31,24 +26,21 @@
   <script>
     const textElement = document.getElementById('text');
 
-    // フルスクリーンモードに切り替える
-    document.documentElement.requestFullscreen(); // ブラウザごとに異なるメソッドを使用する場合もあります
-
     // グラデーションのアニメーション
     setTimeout(() => {
-      textElement.classList.add('show-text');
-    }, 5000); // 5秒後に文字を表示
+      textElement.style.opacity = 1;
+    }, 1000); // 1秒後に文字を表示
 
     // テキストのフェードアウトアニメーション
     setTimeout(() => {
       textElement.style.transition = 'opacity 1s';
       textElement.style.opacity = 0;
-    }, 10000); // 10秒後に文字をフェードアウト
+    }, 5000); // 5秒後に文字をフェードアウト
 
-    // 10秒後にフルスクリーンモードから抜ける
+    // 指定のURLに遷移
     setTimeout(() => {
-      document.exitFullscreen();
-    }, 10000);
+      window.location.href = 'https://example.com'; // 遷移したいURLを指定
+    }, 6000); // 6秒後に指定のURLに遷移
   </script>
 </body>
 </html>
