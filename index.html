@@ -31,6 +31,9 @@
   <script>
     const textElement = document.getElementById('text');
 
+    // フルスクリーンモードに切り替える
+    document.documentElement.requestFullscreen(); // ブラウザごとに異なるメソッドを使用する場合もあります
+
     // グラデーションのアニメーション
     setTimeout(() => {
       textElement.classList.add('show-text');
@@ -41,9 +44,6 @@
       textElement.style.transition = 'opacity 1s';
       textElement.style.opacity = 0;
     }, 10000); // 10秒後に文字をフェードアウト
-
-    // フルスクリーンモードに切り替える
-    document.documentElement.requestFullscreen(); // ブラウザごとに異なるメソッドを使用する場合もあります
 
     // 10秒後にフルスクリーンモードから抜ける
     setTimeout(() => {
