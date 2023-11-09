@@ -42,10 +42,16 @@
       transform: translate(-50%, -50%);
       white-space: nowrap;
     }
+
+    /* スターほしの文字のスタイル */
+    #starhoshi {
+      color: #FFD700; /* 金色に変更 */
+    }  
   </style>
 </head>
 <body>
-  <div id="text">スターほし と申します！<br>よろしくお願いいたします！</div>
+  <div id="text"><span id="starhoshi">スターほし</span> と申します！<br>よろしくお願いいたします！</div>
+
 
   <script>
     const textElement = document.getElementById('text');
