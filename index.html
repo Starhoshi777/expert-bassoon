@@ -9,7 +9,21 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      background: linear-gradient(45deg, #FF5733, #27AE60); /* グラデーションの背景 */
+      background: linear-gradient(45deg, #FF5733, #27AE60); /* 初期のグラデーション */
+      background-size: 200% 200%;
+      animation: gradientChange 5s infinite; /* アニメーションを適用 */
+    }
+
+    @keyframes gradientChange {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
     }
 
     #text {
@@ -40,7 +54,7 @@
     // 指定のURLに遷移
     setTimeout(() => {
       window.location.href = 'https://lit.link/Starhoshi'; // 遷移したいURLを指定
-    }, 6000); // 6秒後に指定のURLに遷移　動いてくれ
+    }, 6000); // 6秒後に指定のURLに遷移
   </script>
 </body>
 </html>
