@@ -31,6 +31,10 @@
       color: white;
       opacity: 0;
       transition: opacity 1s, font-size 1s;
+      position: absolute; /* テキストの位置を絶対位置に設定 */
+      top: 50%; /* 画面上端からの位置を50%に設定して垂直中央に配置 */
+      left: 50%; /* 画面左端からの位置を50%に設定して水平中央に配置 */
+      transform: translate(-50%, -50%); /* 中央配置を調整 */
     }
 
     #star {
@@ -40,6 +44,8 @@
       border-right: 10px solid transparent;
       border-bottom: 20px solid #ffffff; /* 流れ星の色 */
       position: absolute;
+      right: 0; /* 画面右端に配置 */
+      top: 0; /* 画面上端に配置 */
       animation: shootingStar 3s linear infinite;
     }
 
@@ -49,15 +55,15 @@
         opacity: 1;
       }
       100% {
-        transform: translate(-100%, 100%);
+        transform: translate(calc(100% + 20px), calc(100% + 20px));
         opacity: 0;
       }
     }
   </style>
 </head>
 <body>
-  <div id="star"></div> <!-- 流れ星の要素 -->
   <div id="text">よろしく</div>
+  <div id="star"></div> <!-- 流れ星の要素 -->
 
   <script>
     const textElement = document.getElementById('text');
