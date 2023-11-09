@@ -9,9 +9,9 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      background: linear-gradient(45deg, #FF5733, #27AE60); /* 初期のグラデーション */
+      background: linear-gradient(45deg, #FF5733, #27AE60);
       background-size: 200% 200%;
-      animation: gradientChange 5s infinite; /* アニメーションを適用 */
+      animation: gradientChange 5s infinite;
     }
 
     @keyframes gradientChange {
@@ -27,38 +27,61 @@
     }
 
     #text {
-      font-size: 240px;
+      font-size: 24px;
       color: white;
       opacity: 0;
       transition: opacity 1s, font-size 1s;
-      position: absolute; /* テキストの位置を絶対位置に設定 */
-      top: 50%; /* 画面上端からの位置を50%に設定して垂直中央に配置 */
-      left: 50%; /* 画面左端からの位置を50%に設定して水平中央に配置 */
-      transform: translate(-50%, -50%); /* 中央配置を調整 */
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      white-space: nowrap; /* テキストを一行で表示 */
     }
   </style>
 </head>
 <body>
-  <div id="text">よろしくお願いいたします！</div>
+  <div id="text">よろしくお願いいたします</div>
 
   <script>
     const textElement = document.getElementById('text');
 
+    // 画面幅ごとのフォントサイズパターン
+    const fontSizePatterns = [
+      { maxWidth: 480, fontSize: '14px' },
+      { maxWidth: 768, fontSize: '18px' },
+      { maxWidth: 1024, fontSize: '24px' },
+      { maxWidth: 1200, fontSize: '30px' },
+      { fontSize: '36px' } // デフォルト
+    ];
+
+    // 現在の画面幅に応じてフォントサイズを設定
+    function setFontSize() {
+      const screenWidth = window.innerWidth;
+      for (const pattern of fontSizePatterns) {
+        if (screenWidth <= pattern.maxWidth || !pattern.maxWidth) {
+          textElement.style.fontSize = pattern.fontSize;
+          break;
+        }
+      }
+    }
+
     // グラデーションのアニメーション
     setTimeout(() => {
       textElement.style.opacity = 1;
-    }, 1000); // 1秒後に文字を表示
+      setFontSize(); // 初期フォントサイズを設定
+    }, 1000);
 
     // テキストのフェードアウトアニメーション
     setTimeout(() => {
       textElement.style.transition = 'opacity 1s';
       textElement.style.opacity = 0;
-    }, 5000); // 5秒後に文字をフェードアウト
+    }, 5000);
 
+    //  サイト移行は問題ないので一旦コメント化
     // 指定のURLに遷移
-    setTimeout(() => {
-      window.location.href = 'https://lit.link/Starhoshi'; // 遷移したいURLを指定
-    }, 6000); // 6秒後に指定のURLに遷移　文字変わらんなんでや
+    //setTimeout(() => {
+    //  window.location.href = 'https://lit.link/Starhoshi'; // 遷移したいURLを指定
+    //}, 6000); // 6秒後に指定のURLに遷移
   </script>
 </body>
 </html>
