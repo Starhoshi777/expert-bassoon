@@ -34,13 +34,21 @@
     // グラデーションのアニメーション
     setTimeout(() => {
       textElement.classList.add('show-text');
-    }, 500); // 5秒後に文字を表示
+    }, 5000); // 5秒後に文字を表示
 
     // テキストのフェードアウトアニメーション
     setTimeout(() => {
       textElement.style.transition = 'opacity 1s';
       textElement.style.opacity = 0;
-    }, 1000); // 10秒後に文字をフェードアウト
+    }, 10000); // 10秒後に文字をフェードアウト
+
+    // フルスクリーンモードに切り替える
+    document.documentElement.requestFullscreen(); // ブラウザごとに異なるメソッドを使用する場合もあります
+
+    // 10秒後にフルスクリーンモードから抜ける
+    setTimeout(() => {
+      document.exitFullscreen();
+    }, 10000);
   </script>
 </body>
 </html>
