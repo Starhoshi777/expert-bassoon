@@ -20,7 +20,7 @@
             width: 2px;
             height: 2px;
             background-color: white;
-            animation: twinkling 2s infinite; /* 星の点滅を2秒に変更 */
+            animation: twinkling 2s infinite;
         }
 
         @keyframes twinkling {
@@ -33,8 +33,17 @@
             display: none;
         }
 
+        .fade-in {
+            animation: fadeIn 3s forwards;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
         .fade-out {
-            animation: fadeOut 3s forwards; /* 文字のフェードアウトを3秒に変更 */
+            animation: fadeOut 3s forwards;
         }
 
         @keyframes fadeOut {
@@ -75,32 +84,26 @@
         setTimeout(() => {
             const message1 = document.createElement('div');
             message1.textContent = 'スターほしと申します！';
-            message1.className = 'message fade-out';
+            message1.className = 'message fade-in fade-out';
             starsContainer.appendChild(message1);
 
-            // メッセージを表示
-            message1.style.opacity = 1;
-
-            // 5秒後にフェードアウト (2秒遅らせる)
+            // 5秒後にフェードアウト
             setTimeout(() => {
                 message1.classList.add('fade-out');
-            }, 3000);
+            }, 5000);
         }, 1000);
 
-        // Show "よろしくお願いいたします！" after 6 seconds (2秒遅らせる)
+        // Show "よろしくお願いいたします！" after 6 seconds
         setTimeout(() => {
             const message2 = document.createElement('div');
             message2.textContent = 'よろしくお願いいたします！';
-            message2.className = 'message fade-out';
+            message2.className = 'message fade-in fade-out';
             starsContainer.appendChild(message2);
 
-            // メッセージを表示
-            message2.style.opacity = 1;
-
-            // 5秒後にフェードアウト (2秒遅らせる)
+            // 5秒後にフェードアウト
             setTimeout(() => {
                 message2.classList.add('fade-out');
-            }, 3000);
+            }, 5000);
         }, 6000);
     });
 </script>
