@@ -34,7 +34,7 @@
         }
 
         .fade-in-up {
-            animation: fadeInUp 3s forwards;
+            animation: fadeInUp 4s forwards; /* 表示のアニメーション時間を4秒に変更 */
         }
 
         @keyframes fadeInUp {
@@ -65,9 +65,9 @@
 
         .message {
             position: absolute;
-            font-size: 2em;
+            font-size: 2.5em; /* フォントサイズを2.5emに変更 */
             opacity: 0;
-            color: white; /* 文字色を白色に変更 */
+            color: white;
         }
 
         .orange {
@@ -107,24 +107,24 @@
             message1.className = 'message orange fade-in-up fade-out-down'; // オレンジ色に変更
             starsContainer.appendChild(message1);
 
-            // 4秒後にフェードアウト (1秒遅らせる)
+            // 5秒後にフェードアウト (1秒遅らせる)
             setTimeout(() => {
                 message1.classList.add('fade-out-down');
-            }, 4000);
+            }, 5000);
         }, 1000);
 
-        // Show "よろしくお願いいたします！" after 6 seconds (1秒遅らせる)
+        // Show "よろしくお願いいたします！" after 7 seconds (1秒遅らせる)
         setTimeout(() => {
             const message2 = document.createElement('div');
             message2.textContent = 'よろしくお願いいたします！';
             message2.className = 'message white fade-in-up fade-out-down'; // 白色に変更
             starsContainer.appendChild(message2);
 
-            // 4秒後にフェードアウト (1秒遅らせる)
+            // 5秒後にフェードアウト (1秒遅らせる)
             setTimeout(() => {
                 message2.classList.add('fade-out-down');
-            }, 4000);
-        }, 6000);
+            }, 5000);
+        }, 7000);
     });
 </script>
 
