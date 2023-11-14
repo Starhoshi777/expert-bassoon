@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>your welcome</title>
+  <title>電子名刺</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&display=swap">
   <style>
     body {
@@ -108,13 +108,13 @@
     setTimeout(() => {
       textElement.style.opacity = 1;
       setFontSize(); // 初期フォントサイズを設定
+      createStars(); // 星を生成
     }, 1000);
 
     // テキストのフェードアウトアニメーション
     setTimeout(() => {
       textElement.style.transition = 'opacity 1s';
       textElement.style.opacity = 0;
-      createStars(); // 星を生成
     }, 5000);
   </script>
 </body>
