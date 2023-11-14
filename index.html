@@ -34,7 +34,7 @@
         }
 
         .fade-in {
-            animation: fadeIn 3s forwards;
+            animation: fadeIn 5s forwards; /* 出現のアニメーション時間を5秒に変更 */
         }
 
         @keyframes fadeIn {
@@ -49,7 +49,7 @@
         }
 
         .fade-out {
-            animation: fadeOut 3s forwards;
+            animation: fadeOut 5s forwards; /* フェードアウトのアニメーション時間を5秒に変更 */
         }
 
         @keyframes fadeOut {
@@ -99,24 +99,24 @@
             message1.className = 'message fade-in fade-out';
             starsContainer.appendChild(message1);
 
-            // 5秒後にフェードアウト
+            // 7秒後にフェードアウト (2秒遅らせる)
             setTimeout(() => {
                 message1.classList.add('fade-out');
-            }, 5000);
+            }, 7000);
         }, 1000);
 
-        // Show "よろしくお願いいたします！" after 6 seconds
+        // Show "よろしくお願いいたします！" after 8 seconds (2秒遅らせる)
         setTimeout(() => {
             const message2 = document.createElement('div');
             message2.textContent = 'よろしくお願いいたします！';
             message2.className = 'message fade-in fade-out';
             starsContainer.appendChild(message2);
 
-            // 5秒後にフェードアウト
+            // 7秒後にフェードアウト (2秒遅らせる)
             setTimeout(() => {
                 message2.classList.add('fade-out');
-            }, 5000);
-        }, 6000);
+            }, 7000);
+        }, 8000);
     });
 </script>
 
