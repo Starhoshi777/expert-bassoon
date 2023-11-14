@@ -32,7 +32,9 @@
 
     /* スターほしの文字のスタイル */
     #starhoshi {
+      display: inline-block;
       color: #FFD700; /* 金色に変更 */
+      animation: fadein 2s ease-out; /* フェードインのアニメーションを適用 */
     }
 
     /* 星のキラキラアニメーション */
@@ -77,7 +79,7 @@
 </head>
 <body>
   <div id="text">
-    <span id="starhoshi" style="animation: fadein 2s ease-out;">スターほしと申します！</span>
+    <span id="starhoshi">スターほしと申します！</span>
     <br>
     よろしくお願いいたします！
   </div>
@@ -129,17 +131,17 @@
       textElement.style.opacity = 0;
     }
 
-    // テキストが表示されたらフェードアウトをセット
-    textElement.querySelector('#starhoshi').addEventListener('animationend', () => {
-      fadeOut();
-    });
-
-    // 2秒後に「よろしくお願いいたします」が表示
+    // テキストが表示された後、2秒後にフェードアウト
     setTimeout(() => {
-      textElement.innerHTML = 'よろしくお願いいたします！';
-      textElement.style.transition = 'opacity 1s';
-      textElement.style.opacity = 1;
+      setFontSize(); // 初期フォントサイズを設定
+      fadeOut();
     }, 2000);
+
+    //  サイト移行は問題ないので一旦コメント化
+    // 指定のURLに遷移
+    //setTimeout(() => {
+    //  window.location.href = 'https://lit.link/Starhoshi'; // 遷移したいURLを指定
+    //}, 6000); // 6秒後に指定のURLに遷移
   </script>
 </body>
 </html>
