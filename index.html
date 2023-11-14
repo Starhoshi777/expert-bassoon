@@ -1,147 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>電子名刺</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&display=swap">
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-      overflow: hidden;
-      background-color: black; /* 背景色を黒に設定 */
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Twinkling Stars</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: black;
+        }
 
-    #text {
-      font-size: 24px;
-      color: white;
-      opacity: 0;
-      transition: opacity 1s, font-size 1s;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      white-space: nowrap;
-    }
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background-color: white;
+            animation: twinkling 1s infinite;
+        }
 
-    /* スターほしの文字のスタイル */
-    #starhoshi {
-      display: inline-block;
-      color: #FFD700; /* 金色に変更 */
-      animation: fadein 2s ease-out; /* フェードインのアニメーションを適用 */
-    }
+        @keyframes twinkling {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
 
-    /* 星のキラキラアニメーション */
-    .stars {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-    }
+        .hidden {
+            display: none;
+        }
 
-    .star {
-      position: absolute;
-      width: 2px;
-      height: 2px;
-      background: white;
-      border-radius: 50%;
-      animation: twinkle 3s infinite;
-      opacity: 0;
-    }
+        .fade-out {
+            animation: fadeOut 1s forwards;
+        }
 
-    @keyframes twinkle {
-      0%, 100% {
-        opacity: 0;
-      }
-      50% {
-        opacity: 1;
-      }
-    }
-
-    /* フェードインアニメーション */
-    @keyframes fadein {
-      from {
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
-      }
-    }
-  </style>
+        @keyframes fadeOut {
+            0% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+    </style>
 </head>
 <body>
-  <div id="text">
-    <span id="starhoshi">スターほしと申します！</span>
-    <br>
-    よろしくお願いいたします！
-  </div>
-  <div class="stars"></div>
 
-  <script>
-    const textElement = document.getElementById('text');
-    const starsContainer = document.querySelector('.stars');
-
-    // 画面幅ごとのフォントサイズパターン
-    const fontSizePatterns = [
-      { maxWidth: 480, fontSize: '28px' },
-      { maxWidth: 768, fontSize: '32px' },
-      { maxWidth: 1024, fontSize: '54px' },
-      { maxWidth: 1200, fontSize: '88px' },
-      { fontSize: '96px' } // デフォルト
-    ];
-
-    // 現在の画面幅に応じてフォントサイズを設定
-    function setFontSize() {
-      const screenWidth = window.innerWidth;
-      for (const pattern of fontSizePatterns) {
-        if (screenWidth <= pattern.maxWidth || !pattern.maxWidth) {
-          textElement.style.fontSize = pattern.fontSize;
-          break;
+<!-- Stars -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const starsContainer = document.body;
+        
+        // Function to create a random star
+        function createStar() {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.left = `${Math.random() * 100}vw`;
+            star.style.top = `${Math.random() * 100}vh`;
+            starsContainer.appendChild(star);
         }
-      }
-    }
 
-    // 星を生成
-    function createStars() {
-      for (let i = 0; i < 100; i++) {
-        const star = document.createElement('div');
-        star.className = 'star';
-        star.style.top = `${Math.random() * 100}%`;
-        star.style.left = `${Math.random() * 100}%`;
-        starsContainer.appendChild(star);
-      }
-    }
+        // Create stars on page load
+        for (let i = 0; i < 50; i++) {
+            createStar();
+        }
 
-    // グラデーションのアニメーション
-    setTimeout(() => {
-      createStars(); // 星を生成
-    }, 0);
+        // Show "スターほしと申します！" after 1 second
+        setTimeout(() => {
+            const message1 = document.createElement('div');
+            message1.textContent = 'スターほしと申します！';
+            message1.className = 'fade-out';
+            starsContainer.appendChild(message1);
+        }, 1000);
 
-    // フェードアウトアニメーション
-    function fadeOut() {
-      textElement.style.transition = 'opacity 1s';
-      textElement.style.opacity = 0;
-    }
+        // Show "よろしくお願いいたします！" after 3 seconds
+        setTimeout(() => {
+            const message2 = document.createElement('div');
+            message2.textContent = 'よろしくお願いいたします！';
+            message2.className = 'fade-out';
+            starsContainer.appendChild(message2);
+        }, 3000);
+    });
+</script>
 
-    // テキストが表示された後、2秒後にフェードアウト
-    setTimeout(() => {
-      setFontSize(); // 初期フォントサイズを設定
-      fadeOut();
-    }, 2000);
-
-    //  サイト移行は問題ないので一旦コメント化
-    // 指定のURLに遷移
-    //setTimeout(() => {
-    //  window.location.href = 'https://lit.link/Starhoshi'; // 遷移したいURLを指定
-    //}, 6000); // 6秒後に指定のURLに遷移
-  </script>
 </body>
 </html>
