@@ -34,7 +34,7 @@
         }
 
         .fade-in-up {
-            animation: fadeInUp 4s forwards; /* 表示のアニメーション時間を4秒に変更 */
+            animation: fadeInUp 3s forwards; /* 表示のアニメーション時間を3秒に変更 */
         }
 
         @keyframes fadeInUp {
@@ -62,7 +62,7 @@
         }
 
         .fade-out-down {
-            animation: fadeOutDown 2s forwards; /* フェードアウトのアニメーション時間を2秒に変更 */
+            animation: fadeOutDown 3s forwards;
         }
 
         @keyframes fadeOutDown {
@@ -78,7 +78,7 @@
 
         .message {
             position: absolute;
-            font-size: 2.0em; /* フォントサイズを3.5emに変更 */
+            font-size: 2.5em; /* フォントサイズを3.5emに変更 */
             opacity: 0;
             color: white;
         }
@@ -120,28 +120,28 @@
             message1.className = 'message orange fade-in-up'; // オレンジ色に変更
             starsContainer.appendChild(message1);
 
-            // 4秒後にフェードアウト (1秒遅らせる)
+            // 3秒後にフェードアウト (1秒遅らせる)
             setTimeout(() => {
                 message1.classList.add('stay'); // stayクラスを追加して2秒間滞在
-            }, 4000);
+            }, 3000);
 
             // 6秒後にフェードアウト (1秒遅らせる)
             setTimeout(() => {
                 message1.classList.add('fade-out-down');
             }, 3000);
-        }, 000);
+        }, 1000);
 
-        // Show "よろしくお願いいたします！" after 10 seconds (3秒遅らせる)
+        // Show "よろしくお願いいたします！" after 9 seconds (3秒遅らせる)
         setTimeout(() => {
             const message2 = document.createElement('div');
             message2.textContent = 'よろしくお願いいたします！';
             message2.className = 'message white fade-in-up'; // 白色に変更
             starsContainer.appendChild(message2);
 
-            // 4秒後にフェードアウト (1秒遅らせる)
+            // 3秒後にフェードアウト (1秒遅らせる)
             setTimeout(() => {
                 message2.classList.add('stay'); // stayクラスを追加して2秒間滞在
-            }, 4000);
+            }, 3000);
 
             // 6秒後にフェードアウト (1秒遅らせる)
             setTimeout(() => {
@@ -149,10 +149,10 @@
                 
                 // フェードアウト後に指定したサイトにリダイレクト
                 setTimeout(() => {
-                    window.location.href = 'https://lit.link/Starhoshi'; // ここにリダイレクトしたいサイトのURLを指定
+                    window.location.href = 'https://example.com'; // ここにリダイレクトしたいサイトのURLを指定
                 }, 2000);
             }, 3000);
-        }, 3000);
+        }, 9000);
     });
 </script>
 
