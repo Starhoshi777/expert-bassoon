@@ -62,7 +62,7 @@
         }
 
         .fade-out-down {
-            animation: fadeOutDown 3s forwards;
+            animation: fadeOutDown 2s forwards; /* フェードアウトのアニメーション時間を2秒に変更 */
         }
 
         @keyframes fadeOutDown {
@@ -78,7 +78,7 @@
 
         .message {
             position: absolute;
-            font-size: 2.5em; /* フォントサイズを3.5emに変更 */
+            font-size: 2.0em; /* フォントサイズを3.5emに変更 */
             opacity: 0;
             color: white;
         }
@@ -125,7 +125,7 @@
                 message1.classList.add('stay'); // stayクラスを追加して2秒間滞在
             }, 4000);
 
-            // 7秒後にフェードアウト (1秒遅らせる)
+            // 6秒後にフェードアウト (1秒遅らせる)
             setTimeout(() => {
                 message1.classList.add('fade-out-down');
             }, 3000);
@@ -143,11 +143,16 @@
                 message2.classList.add('stay'); // stayクラスを追加して2秒間滞在
             }, 4000);
 
-            // 7秒後にフェードアウト (1秒遅らせる)
+            // 6秒後にフェードアウト (1秒遅らせる)
             setTimeout(() => {
                 message2.classList.add('fade-out-down');
-            }, 3000);
-        }, 4000);
+                
+                // フェードアウト後に指定したサイトにリダイレクト
+                setTimeout(() => {
+                    window.location.href = 'https://lit.link/Starhoshi'; // ここにリダイレクトしたいサイトのURLを指定
+                }, 2000);
+            }, 6000);
+        }, 9000);
     });
 </script>
 
