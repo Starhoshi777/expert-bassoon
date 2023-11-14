@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>電子名刺</title>
+  <title>your welcome</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&display=swap">
   <style>
     body {
@@ -66,7 +66,11 @@
   </style>
 </head>
 <body>
-  <div id="text"><span id="starhoshi">スターほし</span> と申します！<br>よろしくお願いいたします！</div>
+  <div id="text">
+    <span id="starhoshi" style="display:none;">スターほしと申します！</span>
+    <br>
+    よろしくお願いいたします！
+  </div>
   <div class="stars"></div>
 
   <script>
@@ -106,16 +110,27 @@
 
     // グラデーションのアニメーション
     setTimeout(() => {
-      textElement.style.opacity = 1;
-      setFontSize(); // 初期フォントサイズを設定
       createStars(); // 星を生成
-    }, 1000);
+    }, 0);
+
+    // 一定時間後に「スターほしと申します」がフェードイン
+    setTimeout(() => {
+      textElement.querySelector('#starhoshi').style.display = 'inline';
+      textElement.querySelector('#starhoshi').style.animation = 'fadein 2s ease-out';
+    }, 5000);
 
     // テキストのフェードアウトアニメーション
     setTimeout(() => {
       textElement.style.transition = 'opacity 1s';
       textElement.style.opacity = 0;
-    }, 5000);
+    }, 8000);
+
+    // 2秒後に「よろしくお願いいたします」が表示
+    setTimeout(() => {
+      textElement.innerHTML = 'よろしくお願いいたします！';
+      textElement.style.transition = 'opacity 1s';
+      textElement.style.opacity = 1;
+    }, 10000);
   </script>
 </body>
 </html>
