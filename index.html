@@ -41,6 +41,13 @@
             0% { opacity: 1; }
             100% { opacity: 0; }
         }
+
+        .message {
+            position: absolute;
+            color: white;
+            font-size: 24px;
+            opacity: 0; /* 初期状態で非表示 */
+        }
     </style>
 </head>
 <body>
@@ -68,16 +75,32 @@
         setTimeout(() => {
             const message1 = document.createElement('div');
             message1.textContent = 'スターほしと申します！';
-            message1.className = 'hidden fade-out';
+            message1.className = 'message fade-out';
             starsContainer.appendChild(message1);
+
+            // メッセージを表示
+            message1.style.opacity = 1;
+
+            // 3秒後にフェードアウト
+            setTimeout(() => {
+                message1.classList.add('fade-out');
+            }, 1000);
         }, 1000);
 
-        // Show "よろしくお願いいたします！" after 3 seconds
+        // Show "よろしくお願いいたします！" after 4 seconds
         setTimeout(() => {
             const message2 = document.createElement('div');
             message2.textContent = 'よろしくお願いいたします！';
-            message2.className = 'hidden fade-out';
+            message2.className = 'message fade-out';
             starsContainer.appendChild(message2);
+
+            // メッセージを表示
+            message2.style.opacity = 1;
+
+            // 3秒後にフェードアウト
+            setTimeout(() => {
+                message2.classList.add('fade-out');
+            }, 1000);
         }, 3000);
     });
 </script>
