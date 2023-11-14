@@ -48,6 +48,19 @@
             }
         }
 
+        .stay {
+            animation: stay 2s forwards; /* 文字を表示してから中央で2秒間滞在するアニメーションを追加 */
+        }
+
+        @keyframes stay {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 1;
+            }
+        }
+
         .fade-out-down {
             animation: fadeOutDown 3s forwards;
         }
@@ -109,11 +122,16 @@
 
             // 5秒後にフェードアウト (1秒遅らせる)
             setTimeout(() => {
+                message1.classList.add('stay'); // stayクラスを追加して2秒間滞在
+            }, 4000);
+
+            // 7秒後にフェードアウト (1秒遅らせる)
+            setTimeout(() => {
                 message1.classList.add('fade-out-down');
-            }, 5000);
+            }, 7000);
         }, 1000);
 
-        // Show "よろしくお願いいたします！" after 7 seconds (1秒遅らせる)
+        // Show "よろしくお願いいたします！" after 10 seconds (3秒遅らせる)
         setTimeout(() => {
             const message2 = document.createElement('div');
             message2.textContent = 'よろしくお願いいたします！';
@@ -124,7 +142,7 @@
             setTimeout(() => {
                 message2.classList.add('fade-out-down');
             }, 5000);
-        }, 7000);
+        }, 10000);
     });
 </script>
 
