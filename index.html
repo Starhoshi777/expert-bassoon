@@ -65,8 +65,7 @@
 
         .message {
             position: absolute;
-            color: white;
-            font-size: 2em; /* 初期フォントサイズを指定 */
+            font-size: 2em;
             opacity: 0;
         }
 
@@ -74,11 +73,8 @@
             color: orange;
         }
 
-        /* スマートフォン用のフォントサイズ変更 */
-        @media screen and (max-width: 767px) {
-            .message {
-                font-size: 1.5em; /* スマートフォン用のフォントサイズを指定 */
-            }
+        .white {
+            color: white;
         }
     </style>
 </head>
@@ -106,7 +102,7 @@
         // Show "スターほしと申します！" after 1 second
         setTimeout(() => {
             const message1 = document.createElement('div');
-            message1.textContent = 'スターほし';
+            message1.innerHTML = 'スターほし<span class="white">と申します！</span>';
             message1.className = 'message orange fade-in fade-out'; // オレンジ色に変更
             starsContainer.appendChild(message1);
 
