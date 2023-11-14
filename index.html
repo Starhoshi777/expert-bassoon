@@ -20,7 +20,7 @@
             width: 2px;
             height: 2px;
             background-color: white;
-            animation: twinkling 1s infinite;
+            animation: twinkling 2s infinite; /* 星の点滅を2秒に変更 */
         }
 
         @keyframes twinkling {
@@ -34,7 +34,7 @@
         }
 
         .fade-out {
-            animation: fadeOut 1s forwards;
+            animation: fadeOut 3s forwards; /* 文字のフェードアウトを3秒に変更 */
         }
 
         @keyframes fadeOut {
@@ -81,13 +81,13 @@
             // メッセージを表示
             message1.style.opacity = 1;
 
-            // 3秒後にフェードアウト
+            // 5秒後にフェードアウト (2秒遅らせる)
             setTimeout(() => {
                 message1.classList.add('fade-out');
-            }, 1000);
+            }, 3000);
         }, 1000);
 
-        // Show "よろしくお願いいたします！" after 4 seconds
+        // Show "よろしくお願いいたします！" after 6 seconds (2秒遅らせる)
         setTimeout(() => {
             const message2 = document.createElement('div');
             message2.textContent = 'よろしくお願いいたします！';
@@ -97,11 +97,11 @@
             // メッセージを表示
             message2.style.opacity = 1;
 
-            // 3秒後にフェードアウト
+            // 5秒後にフェードアウト (2秒遅らせる)
             setTimeout(() => {
                 message2.classList.add('fade-out');
-            }, 1000);
-        }, 4000);
+            }, 3000);
+        }, 6000);
     });
 </script>
 
