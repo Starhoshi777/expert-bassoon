@@ -33,33 +33,33 @@
             display: none;
         }
 
-        .fade-in {
-            animation: fadeIn 3s forwards;
+        .fade-in-up {
+            animation: fadeInUp 3s forwards;
         }
 
-        @keyframes fadeIn {
+        @keyframes fadeInUp {
             0% {
                 opacity: 0;
-                transform: translateX(100%);
+                transform: translateY(-50%);
             }
             100% {
                 opacity: 1;
-                transform: translateX(0);
+                transform: translateY(0);
             }
         }
 
-        .fade-out {
-            animation: fadeOut 3s forwards;
+        .fade-out-down {
+            animation: fadeOutDown 3s forwards;
         }
 
-        @keyframes fadeOut {
+        @keyframes fadeOutDown {
             0% {
                 opacity: 1;
-                transform: translateX(0);
+                transform: translateY(0);
             }
             100% {
                 opacity: 0;
-                transform: translateX(-100%);
+                transform: translateY(50%);
             }
         }
 
@@ -103,12 +103,12 @@
         setTimeout(() => {
             const message1 = document.createElement('div');
             message1.innerHTML = 'スターほし<span class="white">と申します！</span>';
-            message1.className = 'message orange fade-in fade-out'; // オレンジ色に変更
+            message1.className = 'message orange fade-in-up fade-out-down'; // オレンジ色に変更
             starsContainer.appendChild(message1);
 
             // 4秒後にフェードアウト (1秒遅らせる)
             setTimeout(() => {
-                message1.classList.add('fade-out');
+                message1.classList.add('fade-out-down');
             }, 4000);
         }, 1000);
 
@@ -116,12 +116,12 @@
         setTimeout(() => {
             const message2 = document.createElement('div');
             message2.textContent = 'よろしくお願いいたします！';
-            message2.className = 'message fade-in fade-out';
+            message2.className = 'message orange fade-in-up fade-out-down';
             starsContainer.appendChild(message2);
 
             // 4秒後にフェードアウト (1秒遅らせる)
             setTimeout(() => {
-                message2.classList.add('fade-out');
+                message2.classList.add('fade-out-down');
             }, 4000);
         }, 6000);
     });
