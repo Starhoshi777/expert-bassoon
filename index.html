@@ -67,6 +67,7 @@
             position: absolute;
             font-size: 2em;
             opacity: 0;
+            color: white; /* 文字色を白色に変更 */
         }
 
         .orange {
@@ -116,7 +117,7 @@
         setTimeout(() => {
             const message2 = document.createElement('div');
             message2.textContent = 'よろしくお願いいたします！';
-            message2.className = 'message orange fade-in-up fade-out-down';
+            message2.className = 'message white fade-in-up fade-out-down'; // 白色に変更
             starsContainer.appendChild(message2);
 
             // 4秒後にフェードアウト (1秒遅らせる)
