@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>your welcome</title>
+    <title>Your Welcome</title>
     <style>
         body {
             margin: 0;
@@ -65,7 +65,7 @@
 
         .message {
             position: absolute;
-            font-size: 3.5em; /* フォントサイズを2.5emに変更 */
+            font-size: 3.5em; /* フォントサイズを3.5emに変更 */
             opacity: 0;
             color: white;
         }
@@ -76,6 +76,35 @@
 
         .white {
             color: white;
+        }
+
+        .star-shape {
+            position: absolute;
+            content: "";
+            width: 0;
+            height: 0;
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+            border-bottom: 35px solid white;
+            animation: flowStar 6s linear infinite;
+        }
+
+        @keyframes flowStar {
+            0% {
+                transform: translateY(0) rotate(0deg);
+            }
+            25% {
+                transform: translateY(-100vh) rotate(180deg);
+            }
+            50% {
+                transform: translateY(0) rotate(360deg);
+            }
+            75% {
+                transform: translateY(-100vh) rotate(540deg);
+            }
+            100% {
+                transform: translateY(0) rotate(720deg);
+            }
         }
     </style>
 </head>
@@ -110,6 +139,11 @@
             // 5秒後にフェードアウト (1秒遅らせる)
             setTimeout(() => {
                 message1.classList.add('fade-out-down');
+
+                // 星型の図形を流れるように追加
+                const starShape = document.createElement('div');
+                starShape.className = 'star-shape';
+                starsContainer.appendChild(starShape);
             }, 5000);
         }, 1000);
 
@@ -124,7 +158,7 @@
             setTimeout(() => {
                 message2.classList.add('fade-out-down');
             }, 5000);
-        }, 3000);
+        }, 7000);
     });
 </script>
 
