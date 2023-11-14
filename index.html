@@ -81,6 +81,7 @@
             font-size: 2.5em; /* フォントサイズを3.5emに変更 */
             opacity: 0;
             color: white;
+            white-space: nowrap; /* 改行を抑制 */
         }
 
         .orange {
@@ -150,7 +151,7 @@
                 // フェードアウト後に指定したサイトにリダイレクト
                 setTimeout(() => {
                     window.location.href = 'https://lit.link/Starhoshi'; // ここにリダイレクトしたいサイトのURLを指定
-                }, 1500);
+                }, 1000);
             }, 3000);
         }, 4000);
     });
