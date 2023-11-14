@@ -135,13 +135,18 @@
         setTimeout(() => {
             const message2 = document.createElement('div');
             message2.textContent = 'よろしくお願いいたします！';
-            message2.className = 'message white fade-in-up fade-out-down'; // 白色に変更
+            message2.className = 'message white fade-in-up'; // 白色に変更
             starsContainer.appendChild(message2);
 
-            // 5秒後にフェードアウト (1秒遅らせる)
+            // 4秒後にフェードアウト (1秒遅らせる)
+            setTimeout(() => {
+                message2.classList.add('stay'); // stayクラスを追加して2秒間滞在
+            }, 4000);
+
+            // 7秒後にフェードアウト (1秒遅らせる)
             setTimeout(() => {
                 message2.classList.add('fade-out-down');
-            }, 5000);
+            }, 7000);
         }, 10000);
     });
 </script>
