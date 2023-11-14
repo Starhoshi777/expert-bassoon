@@ -82,20 +82,19 @@
             position: absolute;
             width: 0;
             height: 0;
-            border: 10px solid transparent;
-            border-left: 20px solid white;
-            border-right: 20px solid white;
-            border-bottom: 35px solid white;
-            transform: rotate(35deg);
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-bottom: 20px solid white;
+            transform: rotate(45deg);
             animation: flowStar 6s linear infinite;
         }
 
         @keyframes flowStar {
             0% {
-                transform: rotate(35deg);
+                transform: translateY(0) rotate(45deg);
             }
             100% {
-                transform: rotate(395deg);
+                transform: translateY(100vh) rotate(405deg);
             }
         }
     </style>
