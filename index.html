@@ -117,13 +117,13 @@
         setTimeout(() => {
             const message1 = document.createElement('div');
             message1.innerHTML = 'スターほし<span class="white">と申します！</span>';
-            message1.className = 'message orange fade-in-up fade-out-down'; // オレンジ色に変更
+            message1.className = 'message orange fade-in-up'; // オレンジ色に変更
             starsContainer.appendChild(message1);
 
-            // 5秒後にフェードアウト (1秒遅らせる)
+            // 4秒後にフェードアウト (1秒遅らせる)
             setTimeout(() => {
                 message1.classList.add('stay'); // stayクラスを追加して2秒間滞在
-            }, 4000);
+            }, 3000);
 
             // 7秒後にフェードアウト (1秒遅らせる)
             setTimeout(() => {
